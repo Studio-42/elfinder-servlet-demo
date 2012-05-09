@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>elrte-example</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <context-param>
+    <param-name>HOME_SHARED_DOCS</param-name>
+    <param-value>/tmp/shared_docs</param-value>
+  </context-param>
+  <context-param>
+    <param-name>THUMBNAIL</param-name>
+    <param-value>/servlet/thumbnailer?p=</param-value>
+  </context-param>
+  <context-param>
+    <param-name>REALOBJECTURL</param-name>
+    <param-value>/servlet/virtualproxy?p=</param-value>
+  </context-param>
+  <context-param>
+    <param-name>SHARED_DOCS</param-name>
+    <param-value>Shared docs</param-value>
+  </context-param>
+  <servlet>
+    <display-name>Connector for ElFinder</display-name>
+    <servlet-name>connector</servlet-name>
+    <servlet-class>my.demo.MyDemoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <display-name>Generic Thumbnailer</display-name>
+    <servlet-name>thumbnailer</servlet-name>
+    <servlet-class>my.demo.Thumbnailer</servlet-class>
+  </servlet>
+  <servlet>
+    <display-name>Generic Proxy</display-name>
+    <servlet-name>virtualproxy</servlet-name>
+    <servlet-class>my.demo.VirtualProxy</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>connector</servlet-name>
+    <url-pattern>/servlet/connector</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>thumbnailer</servlet-name>
+    <url-pattern>/servlet/thumbnailer</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>virtualproxy</servlet-name>
+    <url-pattern>/servlet/virtualproxy</url-pattern>
+  </servlet-mapping>
+</web-app>
